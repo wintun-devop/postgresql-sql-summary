@@ -54,3 +54,13 @@ sudo -u postgres psql -c "SELECT version();"
 ```
 sudo systemctl list-units --type=service | grep postgres
 ```
+
+### Backup and Restore
+- Backup
+```
+pg_dump -h your_db_endpoint -U your_username -d your_database_name -Fp -f your_database_name_bk.sql
+```
+- Restore
+```
+psql -h our_db_endpoint -U your_username -d your_database_name -f your_database_name_bk.sql
+```
