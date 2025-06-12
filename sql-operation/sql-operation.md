@@ -1,12 +1,12 @@
 ## Create Table
 
 - Installing UUID Extension
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
 
 ```
 CREATE DATABASE "my_erp";
-```
-```
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
 ```
 CREATE TABLE employee (

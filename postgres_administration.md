@@ -55,7 +55,7 @@ sudo -u postgres psql -c "SELECT version();"
 sudo systemctl list-units --type=service | grep postgres
 ```
 
-### Backup and Restore
+### Backup and Restore (Plain Format -Fp)
 - Backup
 ```
 pg_dump -h your_db_endpoint -U your_username -d your_database_name -Fp -f your_database_name_bk.sql
@@ -63,4 +63,42 @@ pg_dump -h your_db_endpoint -U your_username -d your_database_name -Fp -f your_d
 - Restore
 ```
 psql -h our_db_endpoint -U your_username -d your_database_name -f your_database_name_bk.sql
+```
+
+### Backupp and Restore (Custom Compressing)
+- Backup
+```
+pg_dump -h your_db_endpoint -U your_username -d your_database_name -Fc -Z 9 -f your_database_name_bk.dump
+```
+- Restore
+```
+pg_restore -h your_db_endpoint -U your_username -d your_database_name -v your_database_name_bk.dump
+```
+
+### Drop existing objects before restoring
+```
+pg_restore -h your_db_endpoint -U your_username -d your_database_name --clean --if-exists -v your_database_name_bk.dump
+```
+
+### Restore only schema (without data)
+```
+pg_restore -h your_db_endpoint -U your_username -d your_database_name --schema-only -v your_database_name_bk.dump
+```
+
+### Restore only data (without schema)
+```
+pg_restore -h your_db_endpoint -U your_username -d your_database_name --data-only -v your_database_name_bk.dump
+```
+
+### List all databases with respective size
+```
+SELECT datname, pg_size_pretty(pg_database_size(datname)) FROM pg_database;
+```
+### Current databse size in raw Bytes
+```
+SELECT pg_database_size(current_database());
+```
+### Get current database size in human-readable format
+```
+SELECT pg_size_pretty(pg_database_size(current_database()));
 ```
