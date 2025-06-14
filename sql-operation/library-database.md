@@ -42,3 +42,10 @@ VALUES
 (2,'Fiction','To Kill a Mockingbird','H0003'),
 (3,'Romance','Pride and Prejudice','J0000');
 ```
+
+### Update
+```
+UPDATE books
+SET bookType='Classic'
+WHERE _id = 1;
+```
