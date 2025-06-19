@@ -46,6 +46,10 @@ netstat -tulnp | grep postgres
 ```
 ss -tulnp | grep postgres
 ```
+###
+```
+sudo firewall-cmd --add-port=5432/tcp --permanent
+```
 - Verify PostgreSQL Connection
 ```
 sudo -u postgres psql -c "SELECT version();"
