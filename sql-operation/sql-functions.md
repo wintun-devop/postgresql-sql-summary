@@ -1,0 +1,15 @@
+###
+- function(Build-in)
+  - Aggregate Function
+   - SELECT SUM(salary) FROM employees;
+   - SELECT COUNT(*) FROM orders;
+   - SELECT AVG(age) FROM students;
+   - SELECT MAX(price) FROM products;
+   - SELECT MIN(price) FROM products;
+  - String Function
+   - Connect 
+    - SELECT CONNECT (first_name,'',last_name) FROM employees;
+   - Length
+    - SELECT LENGTH (description) FROM products;
+   - Substring
+    - SELECT SUBSTRING (name,1,3) FROM products;
