@@ -46,6 +46,10 @@ netstat -tulnp | grep postgres
 ```
 ss -tulnp | grep postgres
 ```
+###
+```
+sudo firewall-cmd --add-port=5432/tcp --permanent
+```
 - Verify PostgreSQL Connection
 ```
 sudo -u postgres psql -c "SELECT version();"
@@ -101,4 +105,8 @@ SELECT pg_database_size(current_database());
 ### Get current database size in human-readable format
 ```
 SELECT pg_size_pretty(pg_database_size(current_database()));
+```
+### Query to get List of Existing Databases
+```
+SELECT datname FROM pg_database WHERE datistemplate = false;
 ```
