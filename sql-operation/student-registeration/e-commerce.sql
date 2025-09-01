@@ -7,6 +7,17 @@ CREATE TABLE IF NOT EXISTS sss_users(
   password  VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS sss_user_attributes(
+  id                TEXT   PRIMARY KEY,
+  user_id           TEXT   UNIQUE NOT NULL,
+  profile_url       VARCHAR(255),
+  address_1         TEXT,
+  address_2         TEXT,           
+  contact_1         VARCHAR(255),
+  contact_2         VARCHAR(255)
+);
+
+
 -- INVENTORY table
 CREATE TABLE IF NOT EXISTS sss_inventory (
   id          TEXT PRIMARY KEY,
