@@ -15,7 +15,7 @@ CREATE TABLE sss_inventory (
 -- ORDERS table (One-to-Many from users to orders)
 CREATE TABLE sss_order(
   id          TEXT PRIMARY KEY,
-  user_id     TEXT 
+  user_id     TEXT, 
   -- Foreign key: Each order belongs to a user
   FOREIGN KEY (user_id) REFERENCES sss_users(id) ON DELETE CASCADE
 );
