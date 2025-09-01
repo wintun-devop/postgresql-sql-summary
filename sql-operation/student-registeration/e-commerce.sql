@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS sss_user_attributes(
   address_1         TEXT,
   address_2         TEXT,           
   contact_1         VARCHAR(255),
-  contact_2         VARCHAR(255)
+  contact_2         VARCHAR(255),
+  FOREIGN KEY (user_id) REFERENCES sss_users(id) ON DELETE CASCADE
 );
 
 
