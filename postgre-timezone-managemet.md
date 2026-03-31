@@ -6,7 +6,10 @@ SELECT current_setting('TIMEZONE');
 ```
 SHOW timezone;
 ```
-
+- time zone change
+```
+SET timezone = 'Asia/Tokyo';
+```
 ### Server Level
 - edit postgresql.conf
 ```
