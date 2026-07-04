@@ -31,4 +31,22 @@ SELECT * FROM "Temp_Product"
 ON CONFLICT ON CONSTRAINT "Product_pkey" DO NOTHING;
 ```
 
+### Export CSV
+- Export with Specific Columns Headers
+```
+COPY (SELECT id, name, price FROM products)
+TO '/path/to/products.csv'
+WITH (FORMAT csv, HEADER true);
+```
+- Export with Column Headers
+```
+COPY your_table
+TO '/path/to/output.csv'
+WITH (FORMAT csv, HEADER true);
+```
+```
+COPY tc_category
+TO 'D:/python-servers/twincats-server/docs/e-commerce/category.csv'
+WITH (FORMAT csv, HEADER true);
+```
 
