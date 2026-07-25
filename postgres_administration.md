@@ -58,6 +58,10 @@ sudo -u postgres psql -c "SELECT version();"
 ```
 sudo systemctl list-units --type=service | grep postgres
 ```
+### Backup Schema only with UTF-8 force
+```
+pg_dump -h your_db_endpoint -p 5432 -d your_database_name -U your_username -s -F p -E UTF-8 -f your_database_name_bk_20260725.sql
+```
 
 ### Backup and Restore (Plain Format -Fp)
 - Backup
