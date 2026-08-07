@@ -110,6 +110,10 @@ SELECT pg_database_size(current_database());
 ```
 SELECT pg_size_pretty(pg_database_size(current_database()));
 ```
+### Get database size in specific database
+```
+SELECT pg_size_pretty(pg_database_size('your_db_name')) AS db_size;
+```
 ### Query to get List of Existing Databases
 ```
 SELECT datname FROM pg_database WHERE datistemplate = false;
